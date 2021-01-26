@@ -4,10 +4,10 @@ require('./config/database');
 
 // Require the Mongoose models
 const User = require('./models/user');
-// const Item = require('./models/item');
+// const Plant = require('./models/plant');
 // const Category = require('./models/category');
-// const Order = require('./models/order');
+
 
 // Local variables will come in handy
-let u, i, c, o;
+let u, p, c;
 
