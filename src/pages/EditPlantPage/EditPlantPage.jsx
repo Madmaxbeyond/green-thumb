@@ -1,36 +1,37 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function AddPlantPage(props) {
-  const [invalidForm, setInvalidForm] = useState(true);
-
-  const [formData, setFormData] = useState({
-    name: '',
-    type: '',
-    datePlanted: ''
-  })
-
-  const formRef = useRef();
-
-  useEffect(() => {
-    formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true);
-  }, [formData]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    props.handleAddPlant(formData);
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+export default function EditPlantPage(props) {
+    
+    const [invalidForm, setInvalidForm] = useState(true);
+    
+    const [formData, setFormData] = useState({
+        name: '',
+        type: '',
+        datePlanted: ''
     })
-  }
+    const formRef = useRef();
 
-  return (
-    <>
-    <h1>Add New Plant</h1>
-    <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+    useEffect(() => {
+        formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true);
+    }, [formData]);
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.handleUpdatePlant(formData);
+    }
+    
+    const handleChange = (e) => {
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value,
+        })
+    }    
+
+    return (
+        <>
+            <h1>Edit Plant Details</h1>
+            <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Plant Name</label>
           <input
@@ -69,9 +70,10 @@ export default function AddPlantPage(props) {
           className="btn"
           disabled={invalidForm}
         >
-          Add Plant
+          Save Plant Changes
         </button>
-      </form>    
-    </>
-  )
+        <Link to="/plants">Cancel</Link>
+      </form>            
+        </>
+    )
 }

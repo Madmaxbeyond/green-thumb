@@ -1,11 +1,20 @@
-import PlantCard from "../../components/PlantCard/PlantCard";
+import React from 'react';
+import './PlantListPage.css';
 import PlantListItem from "../../components/PlantListItem/PlantListItem";
 
-export default function PlantListPage() {
+export default function PlantListPage(props) {
     return (
-        <div>
-            <h1>My Plants</h1>
-            <PlantListItem />
+      <>
+        <h1>My Plants</h1>
+        <div className="PlantListPage-grid">
+            {props.plants.map(plant => 
+                <PlantListItem 
+                    plant={plant}
+                    key={plant._id}
+                    handleDeletePlant={props.handleDeletePlant}
+                />
+            )}
         </div>
+      </>
     );
 }

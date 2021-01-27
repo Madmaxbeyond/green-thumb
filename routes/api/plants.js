@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const usersCtrl = require('../../controllers/api/users');
-const ensureLoggedIn = require('../../config/ensureLoggedIn');
+const plantsCtrl = require('../../controllers/api/plants');
 
-// POST /api/plants
+// const ensureLoggedIn = require('../../config/ensureLoggedIn');
+
+// GET /api/plants
+router.get('/', plantsCtrl.index);
+// POST /api/plants/add
 router.post('/', plantsCtrl.create);
-
-// Just to test the token
-router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
+// GET /api/plants/:id
+router.get('/:id', plantsCtrl.show);
+// PUT /api/plants/:id
+router.put('/:id', plantsCtrl.update);
+// DELETE /api/plants/:id
+router.delete('/:id', plantsCtrl.delete);
 
 module.exports = router;
