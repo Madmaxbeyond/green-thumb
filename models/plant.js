@@ -3,14 +3,21 @@ const Schema = mongoose.Schema;
 
 const plantSchema = new Schema({
     name: {type: String, required: true},
-    plantType: {},
+    // plantType: {}, String
     location: {type: String},
     water: {type: String},
     sunlight: {type: String},
-    // schedule: [scheduleSchema], should this be an array??
+    // schedules: [scheduleSchema],
     user: {type: Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
 });
+
+// embedded schema in same file
+const scheduleSchema = new Schema({
+    lastWatered: Date,
+    frequency: Number,
+    
+})
 
 module.exports = mongoose.model('Plant', plantSchema);
