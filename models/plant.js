@@ -17,7 +17,18 @@ const plantSchema = new Schema({
 const scheduleSchema = new Schema({
     lastWatered: Date,
     frequency: Number,
-    
-})
+});
+
+// Use virtual to set next watering date
+scheduleSchema.virtual('nextWateringDate').get(function () {
+    return this.lastWatered + this.frequency;
+});
+
+// Update last date watered
+// scheduleSchema.methods.updateLastWatered = async function (plantId) {
+//     const watered = this;
+//     const wateredPlant = watered.
+//     if ()
+// }
 
 module.exports = mongoose.model('Plant', plantSchema);
