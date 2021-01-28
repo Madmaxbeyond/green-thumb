@@ -25,8 +25,9 @@ export function update(plant) {
     }).then(res => res.json());
 }
 
-export function deleteOne(plantId) {
-    return fetch(`${BASE_URL}/${plantId}`, {
+// Should argument passed in be plant (for plant._id) or plantId ????
+export function deleteOne(plant) {
+    return fetch(`${BASE_URL}/${plant._id}`, {
         method: 'DELETE'
     }).then(res => res.json());
 }

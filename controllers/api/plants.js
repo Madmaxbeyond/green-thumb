@@ -1,15 +1,17 @@
-const Plant = require('../../models/plant');
+const Plant = require('../models/plant');
 
 module.exports = {
-    index,
+    getAll,
     create,
     show,
     update,
     delete: deleteOne
 };
 
-async function index(req, res) {
-    const plants = await Plant.find({});
+async function getAll(req, res) {
+    const plants = await Plant.find({
+        user: req.user._id
+    }); 
     res.status(200).json(plants);
 }
 
