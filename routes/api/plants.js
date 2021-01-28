@@ -3,7 +3,6 @@ const router = express.Router();
 const plantsCtrl = require('../../controllers/api/plants');
 
 
-
 // GET /api/plants
 router.get('/', plantsCtrl.index);
 // POST /api/plants/add

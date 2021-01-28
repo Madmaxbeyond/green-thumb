@@ -69,7 +69,7 @@ export default function App() {
               </Route>
 
               <Route>
-                <EditPlantPage 
+                <EditPlantPage exact path='/plants/edit'
                   handleUpdatePlant={handleUpdatePlant}
                 />
               </Route>

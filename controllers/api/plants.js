@@ -9,7 +9,8 @@ module.exports = {
 };
 
 async function index(req, res) {
-    const plants = await Plant.find({});
+    // user: req.user._id ????
+    const plants = await Plant.find({}); 
     res.status(200).json(plants);
 }
 

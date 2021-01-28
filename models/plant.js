@@ -13,10 +13,10 @@ const plantSchema = new Schema({
     name: {type: String, required: true},
     type: {type: String},
     datePlanted: {type: Number}, 
-    inHomeLocation: {type: String},
-    water: {type: String},
-    sunlight: {type: String},
-    schedules: [scheduleSchema],
+    // inHomeLocation: {type: String},
+    // water: {type: String},
+    // sunlight: {type: String},
+    // schedules: [scheduleSchema],
     user: {type: Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
