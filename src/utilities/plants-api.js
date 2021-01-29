@@ -7,19 +7,19 @@ export function getAll() {
     .then(res => res.json());
 }
 
-export function add(plantData) {
-    return fetch(BASE_URL, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(plantData)
-    }).then(res => res.json());
-}
-
 // export function add(plantData) {
-//     return sendRequest(`${BASE_URL}/${plantData}`);
+//     return fetch(BASE_URL, {
+//         method: 'POST',
+//         headers: {
+//             'content-type': 'application/json'
+//         },
+//         body: JSON.stringify(plantData)
+//     }).then(res => res.json());
 // }
+
+export function add(plantData) {
+    return sendRequest(BASE_URL, 'POST', plantData);
+}
 
 export function update(plant) {
     return fetch(`${BASE_URL}/${plant._id}`, {
