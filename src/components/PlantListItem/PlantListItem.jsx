@@ -17,6 +17,15 @@ export default function PlantListItem({ plant }) {
                     Edit Plant
                 </Link>
 
+                <Link 
+                    className='button'
+                    to={{
+                        pathname: '/plants/details',
+                        state: {plant}
+                    }}
+                >
+                    See Details
+                </Link>
             </div>
 
         </div>

@@ -10,7 +10,7 @@ import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import EditPlantPage from '../EditPlantPage/EditPlantPage';
 
 
-export default function App() {
+export default function App(props) {
   const [user, setUser] = useState(getUser());
 
   const [plants, setPlants] = useState([]);
@@ -22,18 +22,19 @@ export default function App() {
     }
     getPlants();
   }, [])
-
-  async function handleAddPlant(newPlantData) {
-    const newPlant = await plantAPI.create(newPlantData);
-    setPlants([...plants, newPlant]);
-  }
-
+  
   const history = useHistory();
 
-  useEffect(() => {
-    history.push('/')
-  }, [plants, history]);
-
+  async function handleAddPlant(newPlantData) {
+    const newPlant = await plantAPI.add(newPlantData);
+    setPlants([...plants, newPlant]);
+    history.push('/plants');
+  }
+  
+  // useEffect(() => {
+  //   history.push('/')
+  // }, [plants, history]);
+  
   async function handleUpdatePlant(updatedPlantData) {
     const updatedPlant = await plantAPI.update(updatedPlantData);
     const newPlantArray = plants.map(plant => {
@@ -56,7 +57,6 @@ export default function App() {
             <Switch>
               <Route exact path="/plants/add">
                 <AddPlantPage 
-                  plants={plants}
                   handleAddPlant={handleAddPlant}
                 />
               </Route>
@@ -64,12 +64,13 @@ export default function App() {
               <Route exact path='/plants'>
                 <PlantListPage 
                   plants={plants}
+                  // handleAddPlant={props.handleAddPlant}
                   handleDeletePlant={handleDeletePlant} 
                 />
               </Route>
 
-              <Route>
-                <EditPlantPage exact path='/plants/edit'
+              <Route exact path='/plants/edit'>
+                <EditPlantPage 
                   handleUpdatePlant={handleUpdatePlant}
                 />
               </Route>

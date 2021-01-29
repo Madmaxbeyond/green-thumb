@@ -44,10 +44,3 @@ export function getUser() {
   // If there's a token, return the user in the payload, otherwise return null
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
-
-// This is only for testing validation of the token
-// DO NOT need this in the app (just for practice)
-export function checkToken() {
-  usersAPI.checkToken()
-    .then(dateStr => new Date(dateStr));
-}

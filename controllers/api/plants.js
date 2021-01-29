@@ -1,4 +1,4 @@
-const Plant = require('../models/plant');
+const Plant = require('../../models/plant');
 
 module.exports = {
     getAll,
@@ -9,14 +9,17 @@ module.exports = {
 };
 
 async function getAll(req, res) {
+    console.log(req.user)
     const plants = await Plant.find({
-        user: req.user._id
+       
     }); 
     res.status(200).json(plants);
 }
 
 async function create(req, res) {
+    req.body.user = req.user._id; // User --< Plant
     const plant = await Plant.create(req.body);
+    // console.log(plant);
     res.status(201).json(plant);
 }
 

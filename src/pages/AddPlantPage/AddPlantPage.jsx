@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import * as plantAPI from '../../utilities/plants-api';
 
-export default function AddPlantPage(props) {
+
+export default function AddPlantPage({handleAddPlant}) {
   const [invalidForm, setInvalidForm] = useState(true);
 
   const [formData, setFormData] = useState({
@@ -15,9 +17,16 @@ export default function AddPlantPage(props) {
     formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true);
   }, [formData]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    props.handleAddPlant(formData);
+
+  // Arrow function version of handleSubmit:
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   handleAddPlant(formData);
+  // }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    handleAddPlant(formData);
   }
 
   const handleChange = (e) => {
@@ -67,6 +76,7 @@ export default function AddPlantPage(props) {
         <button
           type="submit"
           className="btn"
+          onClick={handleSubmit}
           disabled={invalidForm}
         >
           Add Plant

@@ -1,3 +1,5 @@
+import sendRequest from './send-request';
+
 const BASE_URL = '/api/plants';
 
 export function getAll() {
@@ -5,15 +7,19 @@ export function getAll() {
     .then(res => res.json());
 }
 
-export function create(plant) {
+export function add(plantData) {
     return fetch(BASE_URL, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(plant)
+        body: JSON.stringify(plantData)
     }).then(res => res.json());
 }
+
+// export function add(plantData) {
+//     return sendRequest(`${BASE_URL}/${plantData}`);
+// }
 
 export function update(plant) {
     return fetch(`${BASE_URL}/${plant._id}`, {
