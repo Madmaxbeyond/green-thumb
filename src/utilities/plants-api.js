@@ -2,20 +2,14 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/plants';
 
-export function getAll() {
-    return fetch(BASE_URL)
-    .then(res => res.json());
-}
-
-// export function add(plantData) {
-//     return fetch(BASE_URL, {
-//         method: 'POST',
-//         headers: {
-//             'content-type': 'application/json'
-//         },
-//         body: JSON.stringify(plantData)
-//     }).then(res => res.json());
+// export function getAll() {
+//     return fetch(BASE_URL)
+//     .then(res => res.json());
 // }
+
+export function getAll() {
+    return sendRequest(BASE_URL);
+}
 
 export function add(plantData) {
     return sendRequest(BASE_URL, 'POST', plantData);

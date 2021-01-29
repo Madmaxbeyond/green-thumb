@@ -33,7 +33,6 @@ export function getToken() {
   const payload = JSON.parse(atob(token.split('.')[1]));
   // A JWT's exp is expressed in seconds, not milliseconds, so convert
   if (payload.exp < Date.now() / 1000) {
-    console.log(token, 'Token expired')
     localStorage.removeItem('token');
     return null;
   }
