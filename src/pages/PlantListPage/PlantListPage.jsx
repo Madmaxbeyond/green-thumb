@@ -5,7 +5,15 @@ import PlantListItem from "../../components/PlantListItem/PlantListItem";
 import * as plantAPI from '../../utilities/plants-api';
 
 export default function PlantListPage({ plants, handleDeletePlant}) {
+    const [newplants, setPlants] = useState([]);
 
+    useEffect(() => {
+      async function getPlants() {
+        const plants = await plantAPI.getAll();
+        setPlants(plants);
+      }
+      getPlants();
+    }, [])
 
     return (
       <>

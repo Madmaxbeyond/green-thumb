@@ -15,13 +15,13 @@ export default function App(props) {
 
   const [plants, setPlants] = useState([]);
 
-  useEffect(() => {
-    async function getPlants() {
-      const plants = await plantAPI.getAll();
-      setPlants(plants);
-    }
-    getPlants();
-  }, [])
+  // useEffect(() => {
+  //   async function getPlants() {
+  //     const plants = await plantAPI.getAll();
+  //     setPlants(plants);
+  //   }
+  //   getPlants();
+  // }, [])
   
   const history = useHistory();
 

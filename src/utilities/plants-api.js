@@ -2,11 +2,6 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/plants';
 
-// export function getAll() {
-//     return fetch(BASE_URL)
-//     .then(res => res.json());
-// }
-
 export function getAll() {
     return sendRequest(BASE_URL);
 }
