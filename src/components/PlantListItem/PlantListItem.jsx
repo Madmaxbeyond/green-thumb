@@ -7,15 +7,6 @@ export default function PlantListItem({ plant }) {
         <div className='panel panel-default'>
             <div className='panel-heading'>
                 <h3 className='panel-title'>{plant.name} - {plant.type}</h3>
-                <Link 
-                    className='button'
-                    to={{
-                        pathname: '/plants/edit',
-                        state: {plant}
-                    }}
-                >
-                    Edit Plant
-                </Link>
 
                 <Link 
                     className='button'
@@ -26,6 +17,7 @@ export default function PlantListItem({ plant }) {
                 >
                     See Details
                 </Link>
+                
             </div>
 
         </div>

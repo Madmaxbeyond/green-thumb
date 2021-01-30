@@ -8,21 +8,12 @@ import NavBar from '../../components/NavBar/NavBar';
 import PlantListPage from '../PlantListPage/PlantListPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import EditPlantPage from '../EditPlantPage/EditPlantPage';
+import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 
 
 export default function App(props) {
   const [user, setUser] = useState(getUser());
-
   const [plants, setPlants] = useState([]);
-
-  // useEffect(() => {
-  //   async function getPlants() {
-  //     const plants = await plantAPI.getAll();
-  //     setPlants(plants);
-  //   }
-  //   getPlants();
-  // }, [])
-  
   const history = useHistory();
 
   async function handleAddPlant(newPlantData) {
@@ -43,9 +34,9 @@ export default function App(props) {
     setPlants(newPlantArray);
   }
 
-  async function handleDeletePlant(plantId) {
-    await plantAPI.deleteOne(plantId);
-    setPlants(plants.filter(plant => plant._id !== plantId));
+  async function handleDeletePlant(deletedPlant) {
+    await plantAPI.deleteOne(deletedPlant);
+    setPlants(plants.filter(plant => plant._id !== deletedPlant));
   }
 
 
@@ -65,7 +56,7 @@ export default function App(props) {
                 <PlantListPage 
                   plants={plants}
                   // handleAddPlant={props.handleAddPlant}
-                  handleDeletePlant={handleDeletePlant} 
+                  // handleDeletePlant={handleDeletePlant} 
                 />
               </Route>
 
@@ -75,6 +66,13 @@ export default function App(props) {
                 />
               </Route>
               
+              <Route exact path='/plants/details'>
+                <PlantDetailPage 
+                  handleUpdatePlant={handleUpdatePlant}
+                  handleDeletePlant={handleDeletePlant} 
+                />
+              </Route>
+
               <Redirect to="/plants"/>
             </Switch>
           </>

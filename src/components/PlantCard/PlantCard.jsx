@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function PlantCard({plant}) {
     return (
         <div>
-            <h1>Plant Name Here!{plant.name} - {plant.type}</h1>
-            <div>
-                <Link to='/plants'>Return to Plant List</Link>
-            </div>
+            <h2>Name: {plant.name}</h2>
+            <h3>Plant Type: {plant.type}</h3>
+            <h4>Date Planted: {plant.datePlanted}</h4>
+            <br/>
         </div>
     );
 }

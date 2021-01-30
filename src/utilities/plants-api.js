@@ -11,18 +11,15 @@ export function add(plantData) {
 }
 
 export function update(plant) {
-    return fetch(`${BASE_URL}/${plant._id}`, {
-        method: 'PUT',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(plant)
-    }).then(res => res.json());
+    return sendRequest(`${BASE_URL}/edit/${plant._id}`, 'PUT', plant);
 }
 
-// Should argument passed in be plant (for plant._id) or plantId ????
 export function deleteOne(plant) {
     return fetch(`${BASE_URL}/${plant._id}`, {
         method: 'DELETE'
     }).then(res => res.json());
 }
+
+// export function deleteOne(plant) {
+//     return sendRequest(`${BASE_URL}/delete/${plant._id}`, 'DELETE', plant);
+// }

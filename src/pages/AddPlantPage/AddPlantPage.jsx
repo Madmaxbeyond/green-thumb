@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import * as plantAPI from '../../utilities/plants-api';
-
 
 export default function AddPlantPage({handleAddPlant}) {
   const [invalidForm, setInvalidForm] = useState(true);
@@ -16,20 +14,23 @@ export default function AddPlantPage({handleAddPlant}) {
   useEffect(() => {
     formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true);
   }, [formData]);
-
-
-  // Arrow function version of handleSubmit:
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   handleAddPlant(formData);
-  // }
-
+    
   function handleSubmit(e) {
     e.preventDefault();
     handleAddPlant(formData);
   }
-
-  const handleChange = (e) => {
+  
+  // Helper function to turn plant names to Title Case (this doesn't quite work, does not allow caps lock)
+  // function toTitleCase(str) {
+  //   return str.replace(
+  //     /\w\S*/g,
+  //     function (txt) {
+  //       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  //     }
+  //     );
+  //   }
+    
+    const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,

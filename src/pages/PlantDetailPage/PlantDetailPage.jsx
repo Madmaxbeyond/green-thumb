@@ -1,8 +1,8 @@
 import React from 'react';
 import PlantCard from '../../components/PlantCard/PlantCard';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
-export default function PlantDetailPage() {
+export default function PlantDetailPage({handleDeletePlant}) {
     const { state: {plant} } = useLocation();
 
     return (
@@ -12,6 +12,26 @@ export default function PlantDetailPage() {
                 key={plant._id}
                 plant={plant}
             />
+            <Link 
+                className='button'
+                    to={{
+                    pathname: '/plants/edit',
+                    state: {plant}
+                    }}
+            >
+                Edit Plant
+            </Link>
+
+            <button
+                className='button'
+                onClick={() => handleDeletePlant(plant._id)}
+            >
+                Delete Plant
+            </button>
+
+            <div>
+                <Link to='/plants'>Return to Plant List</Link>
+            </div>
         </>
     );
 }
