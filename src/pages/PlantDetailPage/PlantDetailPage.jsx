@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PlantCard from '../../components/PlantCard/PlantCard';
 import { useLocation, Link } from 'react-router-dom';
 // import * as plantAPI from '../../utilities/plants-api';
@@ -7,6 +7,33 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, pl
     // const [wateredPlant, setWateredPlant] = useState(null);
     const { state: {plant} } = useLocation();
 
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setTimeLeft(calculateTimeLeft());
+        }, 1000);
+        return () => clearTimeout(timer);
+    });
+
+    const calculateTimeLeft = () => {
+        let year = new Date().getFullYear();
+        let difference = +new Date(`1/${year}`) - +new Date();
+        
+        let timeLeft = {};
+
+        if (difference > 0) {
+            timeLeft = {
+                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                seconds: Math.floor((difference / 1000) % 60)                
+            };
+        }
+        return timeLeft;
+    };
+
+    
 
 
     // let inputStyle = {
