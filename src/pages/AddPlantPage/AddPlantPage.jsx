@@ -66,12 +66,12 @@ export default function AddPlantPage({handleAddPlant}) {
             placeholder="2021"
             value={formData.datePlanted}
             onChange={handleChange}
-            required
+            
           />
         </div>
 
         <div className="form-group">
-          <label>Date planted</label>
+          <label>Last Date Watered</label>
           <input
             className="form-control"
             name="lastWatered"
