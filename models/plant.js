@@ -28,9 +28,9 @@ const plantSchema = new Schema({
 });
 
 // Use virtual to set next watering date
-// scheduleSchema.virtual('nextWatering').get(function () {
-//     return this.lastWatered + this.frequency;
-// });
+scheduleSchema.virtual('nextWateringDate').get(function () {
+    return this.lastWatered + this.frequency;
+});
 
 
 // scheduleSchema.virtual('waterOverdue').get(function () {
