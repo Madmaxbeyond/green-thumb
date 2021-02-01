@@ -4,8 +4,9 @@ module.exports = {
     getAll,
     create,
     show,
+    updateWatered,
     update,
-    delete: deleteOne
+    delete: deleteOne,
 };
 
 async function getAll(req, res) {
@@ -26,6 +27,13 @@ async function show(req, res) {
     res.status(200).json(plant);
 }
 
+async function updateWatered(req, res) {
+    const wateredPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {
+      new: true  
+    });
+    res.status(200).json(wateredPlant);
+}
+
 async function update(req, res) {
     const updatedPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {
         new: true
@@ -37,3 +45,10 @@ async function deleteOne(req, res) {
     const deletedPlant = await Plant.findByIdAndDelete(req.params.id);
     res.status(200).json(deletedPlant);
 }
+
+// async function watered(req, res) {
+//     const plant = await Plant.getOne(req.params.id, req.body);
+//     plant.isWatered = true;
+//     await plant.save();
+//     res.json(plant);
+// }

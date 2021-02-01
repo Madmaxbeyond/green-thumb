@@ -10,6 +10,8 @@ router.get('/', ensureLoggedIn, plantsCtrl.getAll);
 router.post('/', ensureLoggedIn, plantsCtrl.create);
 // GET /api/plants/:id
 router.get('/details/:id', ensureLoggedIn, plantsCtrl.show);
+// PUT /api/plants/confirm-water/:id
+router.put('/confirm-water/:id', ensureLoggedIn, plantsCtrl.updateWatered);
 // PUT /api/plants/edit/:id
 router.put('/edit/:id', ensureLoggedIn, plantsCtrl.update);
 // DELETE /api/plants/:id

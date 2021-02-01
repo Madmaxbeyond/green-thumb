@@ -6,7 +6,8 @@ export default function AddPlantPage({handleAddPlant}) {
   const [formData, setFormData] = useState({
     name: '',
     type: '',
-    datePlanted: ''
+    datePlanted: '',
+    lastWatered: ''
   })
 
   const formRef = useRef();
@@ -20,16 +21,6 @@ export default function AddPlantPage({handleAddPlant}) {
     handleAddPlant(formData);
   }
   
-  // Helper function to turn plant names to Title Case (this doesn't quite work, does not allow caps lock)
-  // function toTitleCase(str) {
-  //   return str.replace(
-  //     /\w\S*/g,
-  //     function (txt) {
-  //       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  //     }
-  //     );
-  //   }
-    
     const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -40,7 +31,9 @@ export default function AddPlantPage({handleAddPlant}) {
   return (
     <>
     <h1>Add New Plant</h1>
+
     <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+
         <div className="form-group">
           <label>Plant Name</label>
           <input
@@ -52,6 +45,7 @@ export default function AddPlantPage({handleAddPlant}) {
             required
           />
         </div>
+
         <div className="form-group">
           <label>Plant Type</label>
           <input
@@ -63,6 +57,7 @@ export default function AddPlantPage({handleAddPlant}) {
             required
           />
         </div>
+
         <div className="form-group">
           <label>Date planted</label>
           <input
@@ -74,6 +69,19 @@ export default function AddPlantPage({handleAddPlant}) {
             required
           />
         </div>
+
+        <div className="form-group">
+          <label>Date planted</label>
+          <input
+            className="form-control"
+            name="lastWatered"
+            placeholder="1-1-21"
+            value={formData.lastWatered}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         <button
           type="submit"
           className="btn"
@@ -82,6 +90,7 @@ export default function AddPlantPage({handleAddPlant}) {
         >
           Add Plant
         </button>
+
       </form>    
     </>
   )

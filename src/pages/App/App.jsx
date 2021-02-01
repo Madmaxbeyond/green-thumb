@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
@@ -6,9 +6,10 @@ import * as plantAPI from '../../utilities/plants-api';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import PlantListPage from '../PlantListPage/PlantListPage';
+import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import EditPlantPage from '../EditPlantPage/EditPlantPage';
-import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
+import WaterPlantPage from '../WaterPlantPage/WaterPlantPage';
 
 
 export default function App(props) {
@@ -39,6 +40,14 @@ export default function App(props) {
     setPlants(plants.filter(plant => plant._id !== deletedPlant));
   }
 
+  async function handleWaterPlant(wateredPlantData) {
+    const wateredPlant = await plantAPI.updateWatered(wateredPlantData);
+    const wateredPlantArray = plants.map(plant => {
+      return plant._id === wateredPlant._id ? wateredPlant : plant
+    })
+    setPlants(wateredPlantArray);
+  }
+
 
   return (
     <main className="App">
@@ -55,8 +64,6 @@ export default function App(props) {
               <Route exact path='/plants'>
                 <PlantListPage 
                   plants={plants}
-                  // handleAddPlant={props.handleAddPlant}
-                  // handleDeletePlant={handleDeletePlant} 
                 />
               </Route>
 
@@ -65,11 +72,21 @@ export default function App(props) {
                   handleUpdatePlant={handleUpdatePlant}
                 />
               </Route>
+
+              <Route exact path='/plants/confirm-water'>
+                <WaterPlantPage
+                  plants={plants} 
+                  handleWaterPlant={handleWaterPlant}
+                />
+              </Route>
               
               <Route exact path='/plants/details'>
                 <PlantDetailPage 
+                  plants={plants}
+                  setPlants={setPlants}
                   handleUpdatePlant={handleUpdatePlant}
                   handleDeletePlant={handleDeletePlant} 
+                  handleWaterPlant={handleWaterPlant}
                 />
               </Route>
 

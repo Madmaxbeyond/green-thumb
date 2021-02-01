@@ -1,9 +1,23 @@
 import React from 'react';
 import PlantCard from '../../components/PlantCard/PlantCard';
 import { useLocation, Link } from 'react-router-dom';
+// import * as plantAPI from '../../utilities/plants-api';
 
-export default function PlantDetailPage({handleDeletePlant}) {
+export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, plants, setPlants}) {
+    // const [wateredPlant, setWateredPlant] = useState(null);
     const { state: {plant} } = useLocation();
+
+
+
+    // let inputStyle = {
+    //     border: '5px solid pink'
+    // };
+
+    // if(plant.isWatered === true) {
+    //     inputStyle = {
+    //         border: '5px solid green'
+    //     }
+    // }
 
     return (
         <>
@@ -20,6 +34,19 @@ export default function PlantDetailPage({handleDeletePlant}) {
                     }}
             >
                 Edit Plant
+            </Link>
+
+            <Link
+                className='button'
+                    to={{
+                    pathname: 'plants/confirm-water',
+                    state: {plant}
+                    }}
+                onClick={handleWaterPlant}    
+                // style={inputStyle}
+                // onClick={plant.lastWatered = new Date()}
+            >
+                Water Me!
             </Link>
 
             <button

@@ -5,6 +5,7 @@ import PlantListItem from "../../components/PlantListItem/PlantListItem";
 import * as plantAPI from '../../utilities/plants-api';
 
 export default function PlantListPage({ plants, handleDeletePlant}) {
+    // eslint-disable-next-line
     const [newplants, setPlants] = useState([]);
 
     useEffect(() => {
