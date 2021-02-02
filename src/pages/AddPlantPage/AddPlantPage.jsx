@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
+import 'fontsource-roboto';
+
 
 export default function AddPlantPage({handleAddPlant}) {
   const [invalidForm, setInvalidForm] = useState(true);
@@ -72,7 +75,7 @@ export default function AddPlantPage({handleAddPlant}) {
           />
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Date Last Watered*</label>
           <input
             className="form-control"
@@ -83,7 +86,7 @@ export default function AddPlantPage({handleAddPlant}) {
             onChange={handleChange}
             required
           />
-        </div>
+        </div> */}
 
         <div className="form">
           <label>Watering Frequency*</label>
@@ -95,12 +98,12 @@ export default function AddPlantPage({handleAddPlant}) {
             required
           /> */}
           <select name="frequency" id="" className="form-control"  >
-            <option value={formData.frequency = 12}>Once a Week</option>
-            <option value={formData.frequency = 13}>Every 10 Days</option>
-            <option value={formData.frequency = 14}>Every Two Weeks</option>
-            <option value={formData.frequency = 15}>Once a Month</option>
+            <option value={formData.frequency = 604800000}>Once a Week</option>
+            <option value={formData.frequency = 864000000}>Every 10 Days</option>
+            <option value={formData.frequency = 1209600000}>Every Two Weeks</option>
+            <option value={formData.frequency = 2592000000}>Once a Month</option>
           </select>
-       
+          
         </div>
 
         <button

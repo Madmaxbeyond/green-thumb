@@ -23,7 +23,11 @@ const plantSchema = new Schema({
     datePlanted: {type: Number}, 
     // isWatered: {type: Boolean, default: false},
     lastWatered: { type: Date},
-    frequency: {type: Number},
+    frequency: {
+        type: Number,
+        // days: 7, 10, 14, 30
+        enum: [604800000, 864000000, 1209600000, 2592000000]
+    },
     user: {type: Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true,
@@ -31,10 +35,15 @@ const plantSchema = new Schema({
 });
 
 // Use virtual to set next watering date
+plantSchema.virtual('nextWateringDate').get(function () {
+    return new Date(1612231797602 + this.frequency);
+});
+
+
+// Virtual with lastWatered
 // plantSchema.virtual('nextWateringDate').get(function () {
 //     return new Date(this.lastWatered.getTime() + this.frequency);
 // });
-
 
 
 // scheduleSchema.virtual('waterOverdue').get(function () {
