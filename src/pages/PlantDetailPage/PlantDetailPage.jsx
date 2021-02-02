@@ -3,13 +3,13 @@ import PlantCard from '../../components/PlantCard/PlantCard';
 import { useLocation, Link } from 'react-router-dom';
 // import * as plantAPI from '../../utilities/plants-api';
 
-export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, schedules}) {
+export default function PlantDetailPage({handleDeletePlant, handleWaterPlant}) {
     // const [wateredPlant, setWateredPlant] = useState(null);
     const { state: {plant} } = useLocation();
     
     const calculateTimeLeft = () => {
         let year = new Date().getFullYear();
-        const difference = +new Date(`${year}-2-4`) - +new Date();
+        const difference = `${plant.nextWateringDate}` - +new Date();
         let timeLeft = {};
     
         if (difference > 0) {
@@ -62,17 +62,12 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, sc
             <PlantCard 
                 key={plant._id}
                 plant={plant}
-                schedules={schedules}
             />
-            {/* Below is the countown/timer */}
+            {/* Countown/timer here: */}
             <div className='form-container'>
                 <h2>Time left until next watering: </h2>
                 <h3>{timerComponents.length ? timerComponents : <span>Time to water {plant.name} today!</span>}</h3>
             </div>
-            {/* troubleshooting the frequency on schedules schema */}
-            {/* <div>
-                <h1>{schedules.nextWateringDate}</h1>
-            </div> */}
 
             <Link 
                 className='button'
@@ -85,7 +80,7 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, sc
             </Link>
 
             <Link
-                className='button-water'
+                className='button'
                     to={{
                     pathname: 'plants/confirm-water',
                     state: {plant}

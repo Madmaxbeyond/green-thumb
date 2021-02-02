@@ -137,17 +137,17 @@ button, a.button {
   cursor: pointer;
 }
 
-.button-water {
+.form-container-button {
   margin: 1vmin;
-  padding: 1vmin;
-  color: var(--white);
-  background-color: var(--green);
+  padding: 3vmin;
+  color: var(--text-dark);
+  background-color: var(--white);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
   border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
+  border-radius: 1vmin;
   outline: none;
   cursor: pointer;
 }
