@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import M from 'materialize-css';
 
 
 export default function WaterPlantPage(props) {
@@ -33,8 +34,8 @@ export default function WaterPlantPage(props) {
                 <input
                     className="form-control"
                     type="text"
+                    class="datepicker"
                     name="lastWatered"
-                    // default={new Date}
                     value={formData.lastWatered}
                     onChange={handleChange}
                     required 
@@ -54,3 +55,9 @@ export default function WaterPlantPage(props) {
         </>
     )
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    // eslint-disable-next-line
+    var instances = M.Datepicker.init(elems);
+  });

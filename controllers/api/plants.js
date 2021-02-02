@@ -42,6 +42,6 @@ async function update(req, res) {
 }
 
 async function deleteOne(req, res) {
-    const deletedPlant = await Plant.findByIdAndDelete(req.params.id);
+    const deletedPlant = await Plant.findByIdAndDelete(req.params.id, req.body.user);
     res.status(200).json(deletedPlant);
 }

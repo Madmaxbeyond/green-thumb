@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import M from 'materialize-css';
 
 export default function NavBar({ user, setUser }) {
 
@@ -10,33 +11,36 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className="navbar" role="navigation">
-      <NavLink exact to="/">Home</NavLink>
-      &nbsp; | &nbsp;
-      <NavLink exact to="/plants">My Plants</NavLink>
-      &nbsp; | &nbsp;
-      <NavLink exact to="/plants/add">Add Plant</NavLink>
-      &nbsp; | &nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+    <>
+    <nav role="navigation">
+    <div class="nav-wrapper #CEE0D4 green-text text-lighten-3">
+      <NavLink exact class="brand-logo center green-text text-lighten-3" to="/">GreenThumb</NavLink>
+      {/* eslint-disable-next-line  */}
+      <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">GreenThumb</i></a>
+      <ul class="right hide-on-med-and-down black-text">
+        <li><span>Welcome, {user.name}</span>&nbsp;&nbsp;</li>
+        <li><NavLink exact class="black-text" to="/plants">My Plants</NavLink></li>
+        <li><NavLink exact class="black-text" to="/plants/add">Add Plant</NavLink></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li><Link to="" class="black-text" onClick={handleLogOut}>Log Out</Link></li>
+      </ul>
+    </div>
     </nav>
 
-
-    // Bootstrap navbar info below... 
-    // <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
-    //   <NavLink class="navbar-brand" exact to="/">GreenThumb</NavLink>
-    //   <button class="navbar-toggler" type="nav" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    //     <span class="navbar-toggler-icon"></span>
-    //   </button>
-    //   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    //     <div class="navbar-nav">
-    //       <Link class="nav-item nav-link active" exact to="/plants/add">Add Plant <span class="sr-only">(current)</span></Link>
-    //       <Link class="nav-item nav-link active" exact to="/plants/add">Add Plant <span class="sr-only">(current)</span></Link>
-    //       <a class="nav-item nav-link" href="#">Features</a>
-    //       <a class="nav-item nav-link" href="#">Pricing</a>
-    //       <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    //     </div>
-    //   </div>
-    // </nav>    
+    <ul class="sidenav" id="mobile-demo">
+      <li><span>Hi {user.name}!</span>&nbsp;&nbsp;</li>
+      <li><NavLink exact class="black-text" to="/">Home</NavLink></li>
+      <li><NavLink exact to="/plants">My Plants</NavLink></li>
+      <li><NavLink exact to="/plants/add">Add Plant</NavLink></li>
+      <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
+    </ul>
+  <br/>
+  </>             
   );
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  // eslint-disable-next-line
+  var instances = M.Sidenav.init(elems);
+});

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import M from 'materialize-css';
 
 export default function AddPlantPage({handleAddPlant}) {
   const [invalidForm, setInvalidForm] = useState(true);
@@ -32,7 +33,7 @@ export default function AddPlantPage({handleAddPlant}) {
     <>
     <h1>Add New Plant</h1>
 
-    <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+    <form  ref={formRef} onSubmit={handleSubmit}>
 
         <div className="form-group">
           <label>Plant Name*</label>
@@ -47,23 +48,24 @@ export default function AddPlantPage({handleAddPlant}) {
         </div>
 
         <div className="form-group">
-          <label>Plant Type*</label>
+          <label>Plant Type</label>
           <input
             className="form-control"
             name="type"
             placeholder="Snake Plant"
             value={formData.type}
             onChange={handleChange}
-            required
+            
           />
         </div>
 
         <div className="form-group">
-          <label>Date planted</label>
+          <label>Date Planted</label>
           <input
             className="form-control"
             name="datePlanted"
             type='datetime-local'
+            // class="datepicker"
             placeholder="2021"
             value={formData.datePlanted}
             onChange={handleChange}
@@ -76,15 +78,16 @@ export default function AddPlantPage({handleAddPlant}) {
           <input
             className="form-control"
             name="lastWatered"
-            type='text'
-            placeholder="1-1-21"
+            type="text"
+            class="datepicker"
+            placeholder="2-1-21"
             value={formData.lastWatered}
             onChange={handleChange}
             required
           />
         </div>
 
-        <div className="form">
+        <div className="form-group">
           <label>Watering Frequency*</label>
           <select className="form-control" value={formData.frequency} onChange={handleChange} name="frequency" required >
             <option value="">Select Watering Schedule</option>
@@ -110,3 +113,9 @@ export default function AddPlantPage({handleAddPlant}) {
     </>
   )
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.datepicker');
+  // eslint-disable-next-line
+  var instances = M.Datepicker.init(elems);
+});

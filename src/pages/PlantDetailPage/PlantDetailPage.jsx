@@ -6,6 +6,7 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant}) {
     const { state: {plant} } = useLocation();
     
     const calculateTimeLeft = () => {
+        // eslint-disable-next-line
         let year = new Date().getFullYear();
         const difference = new Date(`${plant.nextWateringDate}`) - +new Date();
         let timeLeft = {};

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import M from 'materialize-css';
 
 export default function EditPlantPage(props) {
     const location = useLocation();
@@ -26,7 +27,7 @@ export default function EditPlantPage(props) {
 
     return (
         <>
-            <h1>Edit Plant</h1>
+            <h1>Edit Plant Details</h1>
             <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
             <div className="form-group">
                 <label>Plant Name*</label>
@@ -57,7 +58,8 @@ export default function EditPlantPage(props) {
                 <input
                     className="form-control"
                     name="datePlanted"
-                    type='datetime-local'
+                    type='text'
+                    class="datepicker"
                     placeholder="2021"
                     value={formData.datePlanted}
                     onChange={handleChange}
@@ -70,7 +72,8 @@ export default function EditPlantPage(props) {
                 <input
                     className="form-control"
                     name="lastWatered"
-                    type='datetime-local'
+                    class="datepicker"
+                    type='text'
                     placeholder="1-1-21"
                     value={formData.lastWatered}
                     onChange={handleChange}
@@ -102,3 +105,9 @@ export default function EditPlantPage(props) {
         </>
     )
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    // eslint-disable-next-line
+    var instances = M.Datepicker.init(elems);
+  });

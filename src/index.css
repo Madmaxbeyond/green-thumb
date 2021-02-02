@@ -24,11 +24,19 @@ body {
   padding: 2vmin;
   height: 100vh;
 }
+.sidenav {
+  color: black !important;
+}
 
 .img-home {
   border-radius: 50%;
   height: 40vmin;
   width: 40vmin;
+}
+
+.header {
+  color: var(--text-dark);
+  text-shadow: var(--green);
 }
 
 code {
@@ -151,6 +159,7 @@ button, a.button {
   border-radius: 1vmin;
   outline: none;
   cursor: pointer;
+  box-shadow: 1px 1px 1px var(--text-light);
 }
 
 button.btn-sm {
@@ -176,4 +185,10 @@ button[type="submit"] {
 button[type='nav'] {
   font-size: medium;
 }
+
+.nav-wrapper {
+  background-color: white;
+
+}
+
 

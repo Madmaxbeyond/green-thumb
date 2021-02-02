@@ -7,13 +7,20 @@ export default function AuthPage({ setUser }) {
 
   return (
     <main>
-      <h1 className="section-heading">Welcome to GreenThumb!</h1>
+      <h1 className="header">GreenThumb</h1>
+      <div className="flex-ctr-ctr">
+        <h3 className="section-heading">Plant Care at your Fingertips</h3>
+      </div>
+      <div>
+            <img className='img-home' src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=966&q=80" alt="Plant"/>
+        </div>
+        <br/>
       {showLogin ?
         <LoginForm setUser={setUser} />
         :
         <SignUpForm setUser={setUser} />
       }
-      <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</button>
+      <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'Don\'t have an account? SIGN UP HERE!' : 'Already signed up? LOG IN HERE!'}</button>
       <div className="flex-ctr-ctr">
         <h1 className="section-heading">GreenThumb is a plant care app that keeps your plants alive!</h1>
       </div>
