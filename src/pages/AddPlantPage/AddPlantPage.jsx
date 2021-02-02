@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
 import 'fontsource-roboto';
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { KeyboardDatePicker } from "@material-ui/pickers";
+
 
 export default function AddPlantPage({handleAddPlant}) {
   const [invalidForm, setInvalidForm] = useState(true);
@@ -90,23 +88,6 @@ export default function AddPlantPage({handleAddPlant}) {
           />
         </div> */}
 
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <KeyboardDatePicker
-              disableToolbar
-              fullWidth
-              variant="inline"
-              format="MM/dd/yyyy"
-              margin="normal"
-              id="date-picker-inline"
-              label="Date picker inline"
-              value={selectedDate}
-              onChange={handleDateChange}
-              KeyboardButtonProps = {{
-                'aria-label': 'change date',
-              }}
-            />
-        </MuiPickersUtilsProvider>
-
         <div className="form">
           <label>Watering Frequency*</label>
           {/* <input
@@ -117,12 +98,12 @@ export default function AddPlantPage({handleAddPlant}) {
             required
           /> */}
           <select name="frequency" id="" className="form-control"  >
-            <option value={formData.frequency}>Once a Week</option>
-            <option value={formData.frequency}>Every 10 Days</option>
-            <option value={formData.frequency}>Every Two Weeks</option>
-            <option value={formData.frequency}>Once a Month</option>
+            <option value={formData.frequency = 604800000}>Once a Week</option>
+            <option value={formData.frequency = 864000000}>Every 10 Days</option>
+            <option value={formData.frequency = 1209600000}>Every Two Weeks</option>
+            <option value={formData.frequency = 2592000000}>Once a Month</option>
           </select>
-       
+          
         </div>
 
         <button
