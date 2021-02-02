@@ -7,7 +7,8 @@ export default function AddPlantPage({handleAddPlant}) {
     name: '',
     type: '',
     datePlanted: '',
-    lastWatered: ''
+    lastWatered: '',
+    frequency: ''
   })
 
   const formRef = useRef();
@@ -35,7 +36,7 @@ export default function AddPlantPage({handleAddPlant}) {
     <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
 
         <div className="form-group">
-          <label>Plant Name</label>
+          <label>Plant Name*</label>
           <input
             className="form-control"
             name="name"
@@ -47,7 +48,7 @@ export default function AddPlantPage({handleAddPlant}) {
         </div>
 
         <div className="form-group">
-          <label>Plant Type</label>
+          <label>Plant Type*</label>
           <input
             className="form-control"
             name="type"
@@ -63,6 +64,7 @@ export default function AddPlantPage({handleAddPlant}) {
           <input
             className="form-control"
             name="datePlanted"
+            type='datetime-local'
             placeholder="2021"
             value={formData.datePlanted}
             onChange={handleChange}
@@ -71,15 +73,34 @@ export default function AddPlantPage({handleAddPlant}) {
         </div>
 
         <div className="form-group">
-          <label>Last Date Watered</label>
+          <label>Date Last Watered*</label>
           <input
             className="form-control"
             name="lastWatered"
+            type='datetime-local'
             placeholder="1-1-21"
             value={formData.lastWatered}
             onChange={handleChange}
             required
           />
+        </div>
+
+        <div className="form">
+          <label>Watering Frequency*</label>
+          {/* <input
+            className="form-control"
+            name="frequency"
+            value={formData.frequency}
+            onChange={handleChange}
+            required
+          /> */}
+          <select name="frequency" id="" className="form-control"  >
+            <option value={formData.frequency}>Once a Week</option>
+            <option value={formData.frequency}>Every 10 Days</option>
+            <option value={formData.frequency}>Every Two Weeks</option>
+            <option value={formData.frequency}>Once a Month</option>
+          </select>
+       
         </div>
 
         <button
@@ -90,7 +111,9 @@ export default function AddPlantPage({handleAddPlant}) {
         >
           Add Plant
         </button>
-
+      <div>
+        <p>*Required</p>
+      </div>
       </form>    
     </>
   )

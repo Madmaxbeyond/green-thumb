@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './PlantListItem.css';
 
-export default function PlantListItem({ plant }) {
+export default function PlantListItem({ plant, schedules }) {
     return (
         <div className='panel panel-default'>
             <div className='panel-heading'>
@@ -12,7 +12,7 @@ export default function PlantListItem({ plant }) {
                     className='button'
                     to={{
                         pathname: '/plants/details',
-                        state: {plant}
+                        state: {plant, schedules}
                     }}
                 >
                     See Details

@@ -3,7 +3,7 @@ import PlantCard from '../../components/PlantCard/PlantCard';
 import { useLocation, Link } from 'react-router-dom';
 // import * as plantAPI from '../../utilities/plants-api';
 
-export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, plants, setPlants}) {
+export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, schedules}) {
     // const [wateredPlant, setWateredPlant] = useState(null);
     const { state: {plant} } = useLocation();
     
@@ -62,12 +62,17 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, pl
             <PlantCard 
                 key={plant._id}
                 plant={plant}
+                schedules={schedules}
             />
             {/* Below is the countown/timer */}
             <div className='form-container'>
                 <h2>Time left until next watering: </h2>
                 <h3>{timerComponents.length ? timerComponents : <span>Time to water {plant.name} today!</span>}</h3>
             </div>
+            {/* troubleshooting the frequency on schedules schema */}
+            {/* <div>
+                <h1>{schedules.nextWateringDate}</h1>
+            </div> */}
 
             <Link 
                 className='button'
@@ -80,7 +85,7 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant, pl
             </Link>
 
             <Link
-                className='button'
+                className='button-water'
                     to={{
                     pathname: 'plants/confirm-water',
                     state: {plant}

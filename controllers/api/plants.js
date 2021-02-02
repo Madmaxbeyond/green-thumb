@@ -23,9 +23,10 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-    const plant = await Plant.findById(req.params.id);
+    const plant = await Plant.findOne({ _id: req.params.id, user: req.user._id });
     res.status(200).json(plant);
 }
+
 
 async function updateWatered(req, res) {
     const wateredPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {

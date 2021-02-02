@@ -4,7 +4,7 @@
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #CEE0D4;
-  --orange: #5ABF78;
+  --green: #5ABF78;
   --text-light: #968c84;
   --text-dark: #447C56;
 }
@@ -23,6 +23,12 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+}
+
+.img-home {
+  border-radius: 50%;
+  height: 40vmin;
+  width: 40vmin;
 }
 
 code {
@@ -85,7 +91,7 @@ code {
 }
 
 p.error-message {
-  color: var(--orange);
+  color: var(--green);
   text-align: center;
 }
 
@@ -113,14 +119,29 @@ input {
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: var(--green);
 }
 
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--green);
+  font-size: 2vmin;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: .1vmin solid var(--tan-2);
+  border-radius: .5vmin;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-water {
+  margin: 1vmin;
+  padding: 1vmin;
+  color: var(--white);
+  background-color: var(--green);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
@@ -150,3 +171,8 @@ button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
+
+button[type='nav'] {
+  font-size: medium;
+}
+

@@ -36,7 +36,7 @@ export default function EditPlantPage(props) {
                     placeholder="Severus Snape"
                     value={formData.name}
                     onChange={handleChange}
-                    required
+                    
                 />
                 </div>
                 <div className="form-group">
@@ -47,7 +47,7 @@ export default function EditPlantPage(props) {
                     placeholder="Snake Plant"
                     value={formData.type}
                     onChange={handleChange}
-                    required
+                    
                 />
                 </div>
                 <div className="form-group">
@@ -58,9 +58,34 @@ export default function EditPlantPage(props) {
                     placeholder="2021"
                     value={formData.datePlanted}
                     onChange={handleChange}
-                    required
+                    
                 />
                 </div>
+                <div className="form-group">
+                <label>Last Date Watered*</label>
+                <input
+                    className="form-control"
+                    name="lastWatered"
+                    placeholder="1-1-21"
+                    value={formData.lastWatered}
+                    onChange={handleChange}
+                    
+                />
+                </div>
+
+                <div className="form-group">
+                <label>Watering Frequency (in days)*</label>
+                <input
+                    className="form-control"
+                    name="frequency"
+                    placeholder="7"
+                    value={formData.frequency}
+                    onChange={handleChange}
+                    
+                />
+                </div>
+
+
                 <button
                 type="submit"
                 className="btn"

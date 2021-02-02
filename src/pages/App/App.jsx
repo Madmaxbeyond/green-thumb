@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import * as plantAPI from '../../utilities/plants-api';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
+import HomePage from '../HomePage/HomePage';
 import PlantListPage from '../PlantListPage/PlantListPage';
 import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
@@ -33,11 +34,13 @@ export default function App(props) {
       return plant._id === updatedPlant._id ? updatedPlant : plant
     })
     setPlants(newPlantArray);
+    history.push('/plants');
   }
 
-  async function handleDeletePlant(deletedPlant) {
-    await plantAPI.deleteOne(deletedPlant);
-    setPlants(plants.filter(plant => plant._id !== deletedPlant));
+  async function handleDeletePlant(plantId) {
+    await plantAPI.deleteOne(plantId);
+    setPlants(plants.filter(plant => plant._id !== plantId));
+    history.push('/plants');
   }
 
   async function handleWaterPlant(wateredPlantData) {
@@ -46,6 +49,7 @@ export default function App(props) {
       return plant._id === wateredPlant._id ? wateredPlant : plant
     })
     setPlants(wateredPlantArray);
+    history.push('/plants');
   }
 
 
@@ -55,6 +59,13 @@ export default function App(props) {
           <>
             <NavBar user={user} setUser={setUser} />
             <Switch>
+
+              <Route exact path="/">
+                <HomePage 
+                  handleAddPlant={handleAddPlant}
+                />
+              </Route>
+
               <Route exact path="/plants/add">
                 <AddPlantPage 
                   handleAddPlant={handleAddPlant}
@@ -90,7 +101,7 @@ export default function App(props) {
                 />
               </Route>
 
-              <Redirect to="/plants"/>
+              {/* <Redirect to="/plants"/> */}
             </Switch>
           </>
         :

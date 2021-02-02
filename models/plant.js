@@ -15,6 +15,11 @@ const scheduleSchema = new Schema({
     toJSON: { virtuals: true }
 });
 
+// Use virtual to set next watering date
+scheduleSchema.virtual('nextWateringDate').get(function () {
+    return new Date(this.lastWatered.getTime() + this.frequency);
+});
+
 const plantSchema = new Schema({
     name: {type: String, required: true},
     type: {type: String},
@@ -27,10 +32,7 @@ const plantSchema = new Schema({
     timestamps: true
 });
 
-// Use virtual to set next watering date
-scheduleSchema.virtual('nextWateringDate').get(function () {
-    return this.lastWatered + this.frequency;
-});
+
 
 
 // scheduleSchema.virtual('waterOverdue').get(function () {
