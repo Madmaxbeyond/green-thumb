@@ -27,7 +27,6 @@ async function show(req, res) {
     res.status(200).json(plant);
 }
 
-
 async function updateWatered(req, res) {
     const wateredPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {
       new: true  

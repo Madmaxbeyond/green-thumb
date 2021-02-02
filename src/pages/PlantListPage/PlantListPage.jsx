@@ -3,7 +3,7 @@ import './PlantListPage.css';
 import PlantListItem from "../../components/PlantListItem/PlantListItem";
 import * as plantAPI from '../../utilities/plants-api';
 
-export default function PlantListPage({ handleDeletePlant}) {
+export default function PlantListPage({ handleDeletePlant }) {
     // eslint-disable-next-line
     const [plants, setPlants] = useState([]);
 

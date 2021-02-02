@@ -20,7 +20,13 @@ const plantSchema = new Schema({
 
 // Virtual with lastWatered
 plantSchema.virtual('nextWateringDate').get(function () {
-    return new Date(this.lastWatered.getTime() + this.frequency);
+    let plantDate = new Date(this.lastWatered.getTime() + this.frequency);
+    return plantDate.toLocaleDateString('en-US');
+});
+
+plantSchema.virtual('prettyWateringDate').get(function () {
+    let plantDate = new Date(this.lastWatered.getTime());
+    return plantDate.toLocaleDateString('en-US');
 });
            
             
