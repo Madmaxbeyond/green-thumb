@@ -1,4 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
+import 'fontsource-roboto';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { KeyboardDatePicker } from "@material-ui/pickers";
 
 export default function AddPlantPage({handleAddPlant}) {
   const [invalidForm, setInvalidForm] = useState(true);
@@ -72,7 +77,7 @@ export default function AddPlantPage({handleAddPlant}) {
           />
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Date Last Watered*</label>
           <input
             className="form-control"
@@ -83,7 +88,24 @@ export default function AddPlantPage({handleAddPlant}) {
             onChange={handleChange}
             required
           />
-        </div>
+        </div> */}
+
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <KeyboardDatePicker
+              disableToolbar
+              fullWidth
+              variant="inline"
+              format="MM/dd/yyyy"
+              margin="normal"
+              id="date-picker-inline"
+              label="Date picker inline"
+              value={selectedDate}
+              onChange={handleDateChange}
+              KeyboardButtonProps = {{
+                'aria-label': 'change date',
+              }}
+            />
+        </MuiPickersUtilsProvider>
 
         <div className="form">
           <label>Watering Frequency*</label>

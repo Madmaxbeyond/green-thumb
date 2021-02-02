@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+
 export default function WaterPlantPage(props) {
     const location = useLocation();
     const [invalidForm, setInvalidForm] = useState(true);
     const [formData, setFormData] = useState(location.state.plant);
     const formRef = useRef();
+ 
 
 
     useEffect(() => {
@@ -32,13 +34,15 @@ export default function WaterPlantPage(props) {
                 <label>Last Watered Date</label>
                 <input
                     className="form-control"
-                    type="datetime-local"
+                    type="text"
                     name="lastWatered"
-                    default={Date}
+                    // default={new Date}
                     value={formData.lastWatered}
                     onChange={handleChange}
                     required
+                    
                 />
+
                 </div>
 
                 <button

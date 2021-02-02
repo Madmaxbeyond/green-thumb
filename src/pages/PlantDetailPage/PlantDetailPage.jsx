@@ -82,10 +82,10 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant}) {
             <Link
                 className='button'
                     to={{
-                    pathname: 'plants/confirm-water',
+                    pathname: '/plants/confirm-water',
                     state: {plant}
                     }}
-                onClick={handleWaterPlant}    
+                  
                 // style={inputStyle}
             >
                 {/* Or called Watered, a button that resets the countdown timer above to match frequency of watering */}
