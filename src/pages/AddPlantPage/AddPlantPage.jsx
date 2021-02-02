@@ -95,10 +95,10 @@ export default function AddPlantPage({handleAddPlant}) {
             required
           /> */}
           <select name="frequency" id="" className="form-control"  >
-            <option value={formData.frequency}>Once a Week</option>
-            <option value={formData.frequency}>Every 10 Days</option>
-            <option value={formData.frequency}>Every Two Weeks</option>
-            <option value={formData.frequency}>Once a Month</option>
+            <option value={formData.frequency = 12}>Once a Week</option>
+            <option value={formData.frequency = 13}>Every 10 Days</option>
+            <option value={formData.frequency = 14}>Every Two Weeks</option>
+            <option value={formData.frequency = 15}>Once a Month</option>
           </select>
        
         </div>
