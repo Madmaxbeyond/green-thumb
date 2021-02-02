@@ -6,7 +6,7 @@ export function getOne(plant) {
     return sendRequest(`${BASE_URL}/${plant._id}`);
 }
 
-export function getAll() {
+export function getAll(user) {
     return sendRequest(BASE_URL);
 }
 

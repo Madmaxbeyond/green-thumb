@@ -3,9 +3,9 @@ import './PlantListPage.css';
 import PlantListItem from "../../components/PlantListItem/PlantListItem";
 import * as plantAPI from '../../utilities/plants-api';
 
-export default function PlantListPage({ plants, schedules, handleDeletePlant}) {
+export default function PlantListPage({ schedules, handleDeletePlant}) {
     // eslint-disable-next-line
-    const [newplants, setPlants] = useState([]);
+    const [plants, setPlants] = useState([]);
 
     useEffect(() => {
       async function getPlants() {

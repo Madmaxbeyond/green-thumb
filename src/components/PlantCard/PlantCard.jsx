@@ -9,7 +9,7 @@ export default function PlantCard({plant, schedules}) {
             <h3>Plant Type: {plant.type}</h3>
             <h4>Date Planted: {plant.datePlanted}</h4>
             <h4>Last watered: {plant.lastWatered}</h4>
-            {plant.schedules.map(sched => <div>{sched.nextWateringDate}</div>)}
+            {/* {plant.schedules.map(sched => <div>{sched.nextWateringDate}</div>)} */}
             
         </div>
         <br/>
