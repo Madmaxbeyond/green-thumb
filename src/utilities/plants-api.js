@@ -22,12 +22,12 @@ export function update(plant) {
     return sendRequest(`${BASE_URL}/edit/${plant._id}`, 'PUT', plant);
 }
 
-export function deleteOne(plantId) {
-    return fetch(`${BASE_URL}/${plantId}`, {
-        method: 'DELETE'
-    }).then(res => res.json());
-}
-
 // export function deleteOne(plantId) {
-//     return sendRequest(`${BASE_URL}/${plantId}`, 'DELETE');
+//     return fetch(`${BASE_URL}/${plantId}`, {
+//         method: 'DELETE'
+//     }).then(res => res.json());
 // }
+
+export function deleteOne(plantId) {
+    return sendRequest(`${BASE_URL}/delete/${plantId}`, 'DELETE');
+}

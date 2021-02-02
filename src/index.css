@@ -146,6 +146,7 @@ button, a.button {
   font-weight: bold;
   text-decoration: none;
   text-align: center;
+  align-content: center;
   border: .1vmin solid var(--tan-2);
   border-radius: 1vmin;
   outline: none;

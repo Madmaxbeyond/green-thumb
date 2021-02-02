@@ -28,8 +28,8 @@ export default function EditPlantPage(props) {
         <>
             <h1>Edit Plant</h1>
             <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
-                <div className="form-group">
-                <label>Plant Name</label>
+            <div className="form-group">
+                <label>Plant Name*</label>
                 <input
                     className="form-control"
                     name="name"
@@ -39,33 +39,38 @@ export default function EditPlantPage(props) {
                     
                 />
                 </div>
+
                 <div className="form-group">
-                <label>Plant Type</label>
+                <label>Plant Type*</label>
                 <input
                     className="form-control"
                     name="type"
                     placeholder="Snake Plant"
                     value={formData.type}
                     onChange={handleChange}
-                    
+                   
                 />
                 </div>
+
                 <div className="form-group">
                 <label>Date planted</label>
                 <input
                     className="form-control"
                     name="datePlanted"
+                    type='datetime-local'
                     placeholder="2021"
                     value={formData.datePlanted}
                     onChange={handleChange}
                     
                 />
                 </div>
+
                 <div className="form-group">
-                <label>Last Date Watered*</label>
+                <label>Date Last Watered*</label>
                 <input
                     className="form-control"
                     name="lastWatered"
+                    type='datetime-local'
                     placeholder="1-1-21"
                     value={formData.lastWatered}
                     onChange={handleChange}
@@ -73,18 +78,16 @@ export default function EditPlantPage(props) {
                 />
                 </div>
 
-                <div className="form-group">
-                <label>Watering Frequency (in days)*</label>
-                <input
-                    className="form-control"
-                    name="frequency"
-                    placeholder="7"
-                    value={formData.frequency}
-                    onChange={handleChange}
-                    
-                />
+                <div className="form">
+                <label>Watering Frequency*</label>
+                <select className="form-control" value={formData.frequency} onChange={handleChange} name="frequency" required >
+                    <option value="">Select Watering Schedule</option>
+                    <option value="604800000">Once a Week</option>
+                    <option value="864000000">Every 10 Days</option>
+                    <option value="1209600000">Every Two Weeks</option>
+                    <option value="2592000000">Once a Month</option>
+                </select>
                 </div>
-
 
                 <button
                 type="submit"

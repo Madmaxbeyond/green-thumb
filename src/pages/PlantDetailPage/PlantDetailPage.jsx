@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import PlantCard from '../../components/PlantCard/PlantCard';
 import { useLocation, Link } from 'react-router-dom';
-// import * as plantAPI from '../../utilities/plants-api';
 
 export default function PlantDetailPage({handleDeletePlant, handleWaterPlant}) {
-    // const [wateredPlant, setWateredPlant] = useState(null);
     const { state: {plant} } = useLocation();
     
     const calculateTimeLeft = () => {
         let year = new Date().getFullYear();
-        const difference = `${plant.nextWateringDate}` - +new Date();
+        const difference = new Date(`${plant.nextWateringDate}`) - +new Date();
         let timeLeft = {};
     
         if (difference > 0) {
@@ -46,16 +44,6 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant}) {
         );
       });    
 
-    // let inputStyle = {
-    //     border: '5px solid pink'
-    // };
-
-    // if(plant.isWatered === true) {
-    //     inputStyle = {
-    //         border: '5px solid green'
-    //     }
-    // }
-
     return (
         <>
             <h1>Plant Detail</h1>
@@ -85,10 +73,7 @@ export default function PlantDetailPage({handleDeletePlant, handleWaterPlant}) {
                     pathname: '/plants/confirm-water',
                     state: {plant}
                     }}
-                  
-                // style={inputStyle}
             >
-                {/* Or called Watered, a button that resets the countdown timer above to match frequency of watering */}
                 Water Me!
             </Link>
 

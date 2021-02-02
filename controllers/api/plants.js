@@ -46,10 +46,3 @@ async function deleteOne(req, res) {
     const deletedPlant = await Plant.findByIdAndDelete(req.params.id);
     res.status(200).json(deletedPlant);
 }
-
-// async function watered(req, res) {
-//     const plant = await Plant.getOne(req.params.id, req.body);
-//     plant.isWatered = true;
-//     await plant.save();
-//     res.json(plant);
-// }

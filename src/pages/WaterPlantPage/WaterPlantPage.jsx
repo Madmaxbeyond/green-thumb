@@ -7,8 +7,6 @@ export default function WaterPlantPage(props) {
     const [invalidForm, setInvalidForm] = useState(true);
     const [formData, setFormData] = useState(location.state.plant);
     const formRef = useRef();
- 
-
 
     useEffect(() => {
         formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true);
@@ -39,10 +37,8 @@ export default function WaterPlantPage(props) {
                     // default={new Date}
                     value={formData.lastWatered}
                     onChange={handleChange}
-                    required
-                    
+                    required 
                 />
-
                 </div>
 
                 <button

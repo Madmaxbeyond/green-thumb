@@ -1,11 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
-import 'fontsource-roboto';
-
 
 export default function AddPlantPage({handleAddPlant}) {
   const [invalidForm, setInvalidForm] = useState(true);
-
   const [formData, setFormData] = useState({
     name: '',
     type: '',
@@ -75,35 +71,28 @@ export default function AddPlantPage({handleAddPlant}) {
           />
         </div>
 
-        {/* <div className="form-group">
+        <div className="form-group">
           <label>Date Last Watered*</label>
           <input
             className="form-control"
             name="lastWatered"
-            type='datetime-local'
+            type='text'
             placeholder="1-1-21"
             value={formData.lastWatered}
             onChange={handleChange}
             required
           />
-        </div> */}
+        </div>
 
         <div className="form">
           <label>Watering Frequency*</label>
-          {/* <input
-            className="form-control"
-            name="frequency"
-            value={formData.frequency}
-            onChange={handleChange}
-            required
-          /> */}
-          <select name="frequency" id="" className="form-control"  >
-            <option value={formData.frequency = 604800000}>Once a Week</option>
-            <option value={formData.frequency = 864000000}>Every 10 Days</option>
-            <option value={formData.frequency = 1209600000}>Every Two Weeks</option>
-            <option value={formData.frequency = 2592000000}>Once a Month</option>
+          <select className="form-control" value={formData.frequency} onChange={handleChange} name="frequency" required >
+            <option value="">Select Watering Schedule</option>
+            <option value="604800000">Once a Week</option>
+            <option value="864000000">Every 10 Days</option>
+            <option value="1209600000">Every Two Weeks</option>
+            <option value="2592000000">Once a Month</option>
           </select>
-          
         </div>
 
         <button

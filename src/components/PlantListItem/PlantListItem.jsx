@@ -2,24 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './PlantListItem.css';
 
-export default function PlantListItem({ plant, schedules }) {
+export default function PlantListItem({ plant }) {
     return (
-        <div className='panel panel-default'>
+        <div className='form-container-button'>
+        <Link 
+        to={{ pathname: '/plants/details', state: {plant} }}
+        >
             <div className='panel-heading'>
                 <h3 className='panel-title'>{plant.name} - {plant.type}</h3>
 
-                <Link 
+                {/* <Link 
                     className='button'
                     to={{
                         pathname: '/plants/details',
-                        state: {plant, schedules}
+                        state: {plant}
                     }}
                 >
                     See Details
-                </Link>
+                </Link> */}
                 
             </div>
-
+        </Link>
         </div>
     )
 }

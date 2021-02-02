@@ -1,7 +1,6 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
-export default function PlantCard({plant, schedules}) {
+export default function PlantCard({ plant }) {
     return (
         <>
         <div className='form-container'>
@@ -9,8 +8,7 @@ export default function PlantCard({plant, schedules}) {
             <h3>Plant Type: {plant.type}</h3>
             <h4>Date Planted: {plant.datePlanted}</h4>
             <h4>Last watered: {plant.lastWatered}</h4>
-            {/* {plant.schedules.map(sched => <div>{sched.nextWateringDate}</div>)} */}
-            
+            <h4>Next Watering Date: {plant.nextWateringDate}</h4> 
         </div>
         <br/>
         </>

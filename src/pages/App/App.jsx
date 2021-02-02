@@ -26,10 +26,6 @@ export default function App(props) {
     history.push('/plants');
   }
   
-  // useEffect(() => {
-  //   history.push('/')
-  // }, [plants, history]);
-  
   async function handleUpdatePlant(updatedPlantData) {
     const updatedPlant = await plantAPI.update(updatedPlantData);
     const newPlantArray = plants.map(plant => {
