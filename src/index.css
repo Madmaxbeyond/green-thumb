@@ -11,6 +11,7 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -187,8 +188,11 @@ button[type='nav'] {
 }
 
 .nav-wrapper {
-  background-color: white;
-
+  color: white;
+  text-decoration: none;
+  touch-action: none;
 }
 
-
+.nav {
+  text-decoration: none;
+}

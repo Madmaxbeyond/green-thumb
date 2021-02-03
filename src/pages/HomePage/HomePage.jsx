@@ -17,7 +17,6 @@ export default function HomePage() {
        <div className='form-container-button'>
         <Link exact to="/plants">My Plants</Link>
        </div>
-
        </>
     )
 }

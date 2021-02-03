@@ -33,18 +33,22 @@ export default function WaterPlantPage(props) {
                 <label>Last Watered Date</label>
                 <input
                     className="form-control"
-                    type="text"
-                    class="datepicker"
                     name="lastWatered"
+                    type="datetime-local"
+                    min="1960-01-01T08:30"
+                    max="2050-01-01T08:30"
+                    placeholder="1-15-21"
                     value={formData.lastWatered}
                     onChange={handleChange}
                     required 
+                    // class="datepicker"
+                    // type="text"
                 />
                 </div>
 
                 <button
                 type="submit"
-                className="btn"
+                className="btn green darken-4"
                 onClick={handleSubmit}
                 disabled={invalidForm}
                 >

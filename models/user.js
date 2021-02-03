@@ -19,7 +19,7 @@ const userSchema = new Schema({
     minLength: 3,
     required: true
   },
-  // Integrate AWS to allow user to upload profile picture?
+  // For AWS integration and profile picture
   avatar: String
 }, {
   timestamps: true,

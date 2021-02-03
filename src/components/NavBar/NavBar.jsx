@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import M from 'materialize-css';
 
@@ -13,25 +13,25 @@ export default function NavBar({ user, setUser }) {
   return (
     <>
     <nav role="navigation">
-    <div class="nav-wrapper #CEE0D4 green-text text-lighten-3">
-      <NavLink exact class="brand-logo center green-text text-lighten-3" to="/">GreenThumb</NavLink>
+    <div class="nav-wrapper green darken-4">
+      <Link exact class="brand-logo center" to="/">GreenThumb</Link>
       {/* eslint-disable-next-line  */}
-      <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">GreenThumb</i></a>
-      <ul class="right hide-on-med-and-down black-text">
+      <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
         <li><span>Welcome, {user.name}</span>&nbsp;&nbsp;</li>
-        <li><NavLink exact class="black-text" to="/plants">My Plants</NavLink></li>
-        <li><NavLink exact class="black-text" to="/plants/add">Add Plant</NavLink></li>
+        <li><Link exact to="/plants">My Plants</Link></li>
+        <li><Link exact to="/plants/add">Add Plant</Link></li>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-        <li><Link to="" class="black-text" onClick={handleLogOut}>Log Out</Link></li>
+        <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
       </ul>
     </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
       <li><span>Hi {user.name}!</span>&nbsp;&nbsp;</li>
-      <li><NavLink exact class="black-text" to="/">Home</NavLink></li>
-      <li><NavLink exact to="/plants">My Plants</NavLink></li>
-      <li><NavLink exact to="/plants/add">Add Plant</NavLink></li>
+      <li><Link exact class="black-text" to="/">Home</Link></li>
+      <li><Link exact to="/plants">My Plants</Link></li>
+      <li><Link exact to="/plants/add">Add Plant</Link></li>
       <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
     </ul>
   <br/>

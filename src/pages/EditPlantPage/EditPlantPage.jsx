@@ -30,7 +30,7 @@ export default function EditPlantPage(props) {
             <h1>Edit Plant Details</h1>
             <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
             <div className="form-group">
-                <label>Plant Name*</label>
+                <label>Plant Name</label>
                 <input
                     className="form-control"
                     name="name"
@@ -42,7 +42,7 @@ export default function EditPlantPage(props) {
                 </div>
 
                 <div className="form-group">
-                <label>Plant Type*</label>
+                <label>Plant Type</label>
                 <input
                     className="form-control"
                     name="type"
@@ -58,25 +58,31 @@ export default function EditPlantPage(props) {
                 <input
                     className="form-control"
                     name="datePlanted"
-                    type='text'
-                    class="datepicker"
+                    type="datetime-local"
+                    min="1960-01-01T08:30"
+                    max="2050-01-01T08:30"
                     placeholder="2021"
                     value={formData.datePlanted}
                     onChange={handleChange}
+                    // class="datepicker"
+                    // type="text"
                     
                 />
                 </div>
 
                 <div className="form-group">
-                <label>Date Last Watered*</label>
+                <label>Date Last Watered</label>
                 <input
                     className="form-control"
                     name="lastWatered"
-                    class="datepicker"
-                    type='text'
-                    placeholder="1-1-21"
+                    type="datetime-local"
+                    min="1960-01-01T08:30"
+                    max="2050-01-01T08:30"
+                    placeholder="1-15-21"
                     value={formData.lastWatered}
                     onChange={handleChange}
+                    // class="datepicker"
+                    // type="text"
                     
                 />
                 </div>
@@ -94,7 +100,7 @@ export default function EditPlantPage(props) {
 
                 <button
                 type="submit"
-                className="btn"
+                className="btn green darken-4"
                 onClick={handleSubmit}
                 disabled={invalidForm}
                 >

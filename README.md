@@ -24,4 +24,4 @@ If your house is becoming an indoor jungle, keeping your plants alive and thrivi
 - Add profile photo upload
 - Add calendar element to see when all plants need to be watered at once
 - Add login via Google
-- Add datepicker for all date entries
+- Add widely supported datepicker for all date entries
