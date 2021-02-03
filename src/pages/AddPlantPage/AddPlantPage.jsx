@@ -64,7 +64,7 @@ export default function AddPlantPage({handleAddPlant}) {
           <input
             className="form-control"
             name="datePlanted"
-            type='datetime-local'
+            type='text'
             placeholder="2021"
             value={formData.datePlanted}
             onChange={handleChange} 
@@ -76,8 +76,7 @@ export default function AddPlantPage({handleAddPlant}) {
           <input
             className="form-control"
             name="lastWatered"
-            type="text"
-            class="datepicker"
+            type="datetime-local"
             placeholder="2-1-21"
             value={formData.lastWatered}
             onChange={handleChange}

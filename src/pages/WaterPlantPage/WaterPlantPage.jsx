@@ -34,8 +34,7 @@ export default function WaterPlantPage(props) {
                 <input
                     className="form-control"
                     name="lastWatered"
-                    type="text"
-                    class="datepicker"
+                    type="datetime-local"
                     placeholder="2-1-21"
                     value={formData.lastWatered}
                     onChange={handleChange}

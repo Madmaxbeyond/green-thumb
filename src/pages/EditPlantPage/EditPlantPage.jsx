@@ -59,7 +59,6 @@ export default function EditPlantPage(props) {
                     className="form-control"
                     name="datePlanted"
                     type="text"
-                    class="datepicker"
                     placeholder="2021"
                     value={formData.datePlanted}
                     onChange={handleChange}
@@ -71,8 +70,7 @@ export default function EditPlantPage(props) {
                 <input
                     className="form-control"
                     name="lastWatered"
-                    type="text"
-                    class="datepicker"           
+                    type="datetime-local"         
                     placeholder="2-1-21"
                     value={formData.lastWatered}
                     onChange={handleChange}
