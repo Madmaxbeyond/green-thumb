@@ -20,11 +20,8 @@ export default function AuthPage({ setUser }) {
         :
         <SignUpForm setUser={setUser} />
       }
-      <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'Don\'t have an account? SIGN UP HERE!' : 'Already signed up? LOG IN HERE!'}</button>
+      <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'Don\'t have an account? SIGN UP!' : 'Already signed up? LOG IN!'}</button>
         <h4 className="section-heading">GreenThumb is a plant care app that keeps your plants alive with a countdown to your plants' next watering date!</h4>
-      {/* <div className="flex-ctr-ctr">
-        <h4 className="form-container">Keep your plants alive with a countdown to water your plants</h4>
-      </div> */}
     </main>
   );
 }

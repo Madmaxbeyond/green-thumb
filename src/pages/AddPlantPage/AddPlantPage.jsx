@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+
 import M from 'materialize-css';
 
 export default function AddPlantPage({handleAddPlant}) {
@@ -56,7 +56,6 @@ export default function AddPlantPage({handleAddPlant}) {
             placeholder="Snake Plant"
             value={formData.type}
             onChange={handleChange}
-            
           />
         </div>
 
@@ -66,12 +65,9 @@ export default function AddPlantPage({handleAddPlant}) {
             className="form-control"
             name="datePlanted"
             type='datetime-local'
-            min="1960-01-01T08:30"
-            max="2050-01-01T08:30"
             placeholder="2021"
             value={formData.datePlanted}
-            onChange={handleChange}
-            
+            onChange={handleChange} 
           />
         </div>
 
@@ -80,15 +76,12 @@ export default function AddPlantPage({handleAddPlant}) {
           <input
             className="form-control"
             name="lastWatered"
-            type="datetime-local"
-            min="1960-01-01T08:30"
-            max="2050-01-01T08:30"
+            type="text"
+            class="datepicker"
             placeholder="2-1-21"
             value={formData.lastWatered}
             onChange={handleChange}
             required
-            // type="text"
-            // class="datepicker"
           />
         </div>
 
@@ -113,9 +106,6 @@ export default function AddPlantPage({handleAddPlant}) {
         </button>
       <div>
         <p>*Required</p>
-      </div>
-      <div>
-        <Link to="/plants">Cancel</Link>
       </div>
       </form>    
     </>
