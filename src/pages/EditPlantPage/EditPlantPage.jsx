@@ -76,6 +76,7 @@ export default function EditPlantPage(props) {
                     placeholder="2-1-21"
                     value={formData.lastWatered}
                     onChange={handleChange}
+                    required
                 />
                 </div>
 
