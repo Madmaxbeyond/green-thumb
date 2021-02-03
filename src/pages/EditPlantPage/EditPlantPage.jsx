@@ -65,18 +65,7 @@ export default function EditPlantPage(props) {
                 />
                 </div>
 
-                <div className="form-group">
-                <label>Date Last Watered</label>
-                <input
-                    className="form-control"
-                    name="lastWatered"
-                    type="datetime-local"         
-                    placeholder="2-1-21"
-                    value={formData.lastWatered}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
+
 
                 <div className="form">
                 <label>Watering Frequency*</label>
