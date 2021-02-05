@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import M from 'materialize-css';
 
 export default function AddPlantPage({handleAddPlant}) {
