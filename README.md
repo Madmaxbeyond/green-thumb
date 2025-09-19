@@ -3,7 +3,7 @@
 If your house is becoming an indoor jungle, keeping your plants alive and thriving can feel like a full time job. Let GreenThumb take care of the scheduling with a watering countdown to match each of your plant baby's watering needs!
 
 # Keep your plants alive with a watering date countdown!
-- [Add your first plant on GreenThumb now!](https://green-thumb-app.herokuapp.com/ "GreenThumb - Plant Care from your Phone")
+- [Add your first plant on GreenThumb now!](https://green-thumb.megahirtz.run/ "GreenThumb - Plant Care from your Phone")
 - See the planning on [Trello](https://trello.com/b/Yf2pzEfS/greenthumb-react-app)
 
 ## App Screenshots
